@@ -1,42 +1,76 @@
 <?php include 'components/header.php';?>
 
-<main class="section-login">
-    <div class="container">
-        <form class="form-login" action="includes/login.inc.php" method="POST">
-            <div class="form-group">
-                <label for="email">Email address</label>
-				<input 
-					type="email" 
-					name="email" 
-					class="form-control" 
-					id="email" 
-					aria-describedby="emailHelp" 
-					placeholder="Enter email">
-                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+<div class="limiter">
+    <div class="container-login100">
+        <div class="wrap-login100">
+            <div class="login100-pic js-tilt" data-tilt>
+                <img src="images/img-01.png" alt="IMG">
             </div>
-            <div class="form-group">
-                <label for="password">Password</label>
-				<input 
-					type="password" 
-					name="password" 
-					class="form-control" 
-					id="password" 
-					placeholder="Password">
-            </div>
-            <!-- <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                <label class="form-check-label" for="exampleCheck1">Check me out</label>
-            </div> -->
-            <p>
-                Don't have an account?
-                <a href="signup.php">Register</a>
-            </p>
 
-            <button type="submit" name="login-submit" class="btn btn-primary">Login</button>
-        </form>
+            <form 
+                class="login100-form validate-form" 
+                action="includes/login.inc.php"
+                method="POST"	
+            >
+                <span class="login100-form-title text-right">
+                    <!-- Login -->
+                </span>
+
+                <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+                    <input 
+                        type="email" 
+                        name="email" 
+                        class="input100" 
+                        id="email" 
+                        aria-describedby="emailHelp" 
+                        placeholder="Enter email">
+                    <span class="focus-input100"></span>
+                    <span class="symbol-input100">
+                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                    </span>
+                </div>
+
+                <div class="wrap-input100 validate-input" data-validate = "Password is required">
+                    <input 
+                        type="password" 
+                        name="password" 
+                        class="input100" 
+                        id="password" 
+                        placeholder="Password"
+                    >
+                    <span class="focus-input100"></span>
+                    <span class="symbol-input100">
+                        <i class="fa fa-lock" aria-hidden="true"></i>
+                    </span>
+                </div>
+                
+                <div class="container-login100-form-btn">
+                    <button 
+                        class="login100-form-btn"
+                        name="login-submit">
+                        Login
+                    </button>
+                </div>
+<!-- 
+                <div class="text-center p-t-12">
+                    <span class="txt1">
+                        Forgot
+                    </span>
+                    <a class="txt2" href="#">
+                        Username / Password?
+                    </a>
+                </div> -->
+
+                <div class="text-center p-t-136">
+                    <a class="txt2" href="signup.php">
+                        Create your Account
+                        <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </form>
+        </div>
     </div>
-<main>
-    
+</div>
 
 <?php include 'components/footer.php';?>
 

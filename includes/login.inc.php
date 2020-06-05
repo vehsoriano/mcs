@@ -11,7 +11,7 @@ if(isset($_POST['login-submit'])) {
         exit();
     }
     else {
-        $sql = "SELECT * FROM customers WHERE email=?;";
+        $sql = "SELECT * FROM users WHERE email=?;";
         $stmt = mysqli_stmt_init($con);
         if(!mysqli_stmt_prepare($stmt, $sql)) {
             header("Location: ../index.php?error=sqlerror");
@@ -33,8 +33,13 @@ if(isset($_POST['login-submit'])) {
                     session_start();
                     $_SESSION['customerID'] = $row['customer_id'];
                     $_SESSION['name'] = $row['name'];
-                    header("Location: ../dashboard.php?login=success");
-                    exit();
+                    if($row['role'] == 'admin') {
+                        header("Location: ../dashboard.php?login=success");
+                        exit();
+                    } else {
+                        header("Location: ../dashboard-user.php?login=success");
+                        exit();
+                    }
                 } 
                 else {
                     header("Location: ../index.php?error=wrongpassword");

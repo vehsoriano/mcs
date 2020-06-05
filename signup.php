@@ -1,97 +1,149 @@
 <?php include 'components/header.php';?>
 
-<main class="signup">
-    <div class="container">
+<div class="limiter">
+    <div class="container-login100">
+        <div class="wrap-login100">
+            <div class="login100-pic js-tilt" data-tilt>
+                <img src="images/img-01.png" alt="IMG">
+            </div>
 
-        <?php
-        
-            if(isset($_GET['error'])) {
-                if($_GET['error' == 'emptyfields']) {
-                    echo '<p class="errorfields">There are some error in some fields.</p>'
-                } 
-            }
-        
-        ?>
+            <form 
+                class="login100-form validate-form"
+                action="includes/signup.inc.php"
+                method="POST"
+            >
+                <!-- <span class="login100-form-title">
+                    Register
+                </span> -->
 
-        <form class="form-signup" action="includes/signup.inc.php" method="POST">
-            <div class="form-group">
-                <label for="firstName">First Name *</label>
-                <input 
-                    type="text" 
-                    class="form-control" 
-                    id="firstName" 
-                    name="firstName"
-                    aria-describedby="firstName" 
-                    placeholder="John">
-            </div>
-            <div class="form-group">
-                <label for="lastName">Last Name *</label>
-                <input 
-                    type="text" 
-                    class="form-control" 
-                    id="lastName" 
-                    name="lastName"
-                    aria-describedby="lastName" 
-                    placeholder="Doe">
-            </div>
-            <div class="form-group">
-                <label for="email">Email address *</label>
-                <input 
-                    type="email" 
-                    class="form-control" 
-                    id="email" 
-                    name="email"
-                    aria-describedby="email" 
-                    placeholder="johndoe@gmail.com">
-            </div>
-            <div class="form-group">
-                <label for="address">Address *</label>
-                <input 
-                    type="text" 
-                    class="form-control" 
-                    id="address" 
-                    name="address"
-                    aria-describedby="address" 
-                    placeholder="Unit 101/88 Blaxland Rd, Ryde NSW 2112">
-            </div>
-            <div class="form-group">
-                <label for="mobile">Mobile No. *</label>
-                <input 
-                    type="text" 
-                    class="form-control" 
-                    id="mobile" 
-                    name="mobile"
-                    aria-describedby="mobile" 
-                    placeholder="045XXXXXXX">
-            </div>
-            <div class="form-group">
-                <label for="password">Password *</label>
-                <input 
-                    type="password" 
-                    class="form-control" 
-                    id="password" 
-                    name="password"
-                    placeholder="Password">
-            </div>
-            <div class="form-group">
-                <label for="confirmPassword">Confirm Password *</label>
-                <input 
-                    type="confirmPassword" 
-                    class="form-control" 
-                    id="confirmPassword" 
-                    name="confirmPassword"
-                    placeholder="Confirm Password">
-            </div>
-            <div class="form-group">
-                <button type="submit" name="signup-submit" class="btn btn-primary mr-auto px-4">Register</button>
-            </div>
-            <p class="text">
-                Back to
-                <a href="index.php">Login</a>
-            </p>
-        </form>
+                <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+                    <input 
+                        type="text" 
+                        class="input100" 
+                        id="firstName" 
+                        name="firstName"
+                        aria-describedby="firstName" 
+                        placeholder="John"
+                    >
+                    <span class="focus-input100"></span>
+                    <span class="symbol-input100">
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                    </span>
+                </div>
+
+                <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+                    <input 
+                        type="text" 
+                        class="input100" 
+                        id="lastName" 
+                        name="lastName"
+                        aria-describedby="lastName" 
+                        placeholder="Doe"
+                    >
+                    <span class="focus-input100"></span>
+                    <span class="symbol-input100">
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                    </span>
+                </div>
+
+                <div class="wrap-input100 validate-input" data-validate = "Password is required">
+                    <input 
+                        type="email" 
+                        name="email" 
+                        class="input100" 
+                        id="email" 
+                        placeholder="johndoe@gmail.com"
+                    >
+                    <span class="focus-input100"></span>
+                    <span class="symbol-input100">
+                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                    </span>
+                </div>
+
+                <div class="wrap-input100 validate-input" data-validate = "Password is required">
+                    <input 
+                        type="text" 
+                        name="mobile" 
+                        class="input100" 
+                        id="mobile" 
+                        placeholder="045XXXXXXX"
+                    >
+                    <span class="focus-input100"></span>
+                    <span class="symbol-input100">
+                        <i class="fa fa-phone" aria-hidden="true"></i>
+                    </span>
+                </div>
+
+                <div class="wrap-input100 validate-input" data-validate = "Password is required">
+                    <input 
+                        type="text" 
+                        name="address" 
+                        class="input100" 
+                        id="address" 
+                        placeholder="Unit 101/88 Blaxland Rd, Ryde NSW 2112"
+                    >
+                    <span class="focus-input100"></span>
+                    <span class="symbol-input100">
+                        <i class="fa fa-home" aria-hidden="true"></i>
+                    </span>
+                </div>
+
+                <div class="wrap-input100 validate-input" data-validate = "Password is required">
+                    <input 
+                        type="password" 
+                        name="password" 
+                        class="input100" 
+                        id="password" 
+                        placeholder="Password"
+                    >
+                    <span class="focus-input100"></span>
+                    <span class="symbol-input100">
+                        <i class="fa fa-lock" aria-hidden="true"></i>
+                    </span>
+                </div>
+
+                <div class="wrap-input100 validate-input" data-validate = "Password is required">
+                    <input 
+                        type="password" 
+                        name="confirmPassword" 
+                        class="input100" 
+                        id="confirmPassword" 
+                        placeholder="Confirm Password"
+                    >
+                    <span class="focus-input100"></span>
+                    <span class="symbol-input100">
+                        <i class="fa fa-lock" aria-hidden="true"></i>
+                    </span>
+                </div>
+                
+                <div class="container-login100-form-btn">
+                    <button 
+                        type="submit"
+                        class="login100-form-btn"
+                        name="signup-submit">
+                        Create Account
+                    </button>
+                </div>
+<!-- 
+                <div class="text-center p-t-12">
+                    <span class="txt1">
+                        Forgot
+                    </span>
+                    <a class="txt2" href="#">
+                        Username / Password?
+                    </a>
+                </div> -->
+
+                <div class="text-center p-t-136">
+                    <a class="txt2" href="index.php">
+                        Login
+                        <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </form>
+        </div>
     </div>
-<main>
+</div>
     
 
 <?php include 'components/footer.php';?>

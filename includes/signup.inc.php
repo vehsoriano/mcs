@@ -10,6 +10,7 @@ if(isset($_POST['signup-submit'])) {
     $address = $_POST['address'];
     $password = $_POST['password'];
     $confirm_password = $_POST['confirmPassword'];
+    $role = "user";
 
     if (empty($first_name) || empty($last_name) || empty($email) || empty($mobile) || empty($address) || empty($password)  || empty($confirm_password)) {
         header("Location: ../signup.php?error=emptyfields&firstName".$first_name."&lastName".$last_name);
@@ -22,7 +23,7 @@ if(isset($_POST['signup-submit'])) {
     }
 
     else {
-        $sql = "SELECT email FROM customers WHERE email=?";
+        $sql = "SELECT email FROM users WHERE email=?";
         $stmt = mysqli_stmt_init($con);
 
         if(!mysqli_stmt_prepare($stmt, $sql)) {
@@ -40,11 +41,11 @@ if(isset($_POST['signup-submit'])) {
             }
             
             else {
-                $sql = "INSERT INTO customers (name, address, email, mobile_no, password) VALUES (?, ? ,?, ?, ?)";
+                $sql = "INSERT INTO users (name, address, email, mobile_no, role, password) VALUES (?, ? ,?, ?, ?, ?)";
                 $stmt = mysqli_stmt_init($con);
 
                 if(!mysqli_stmt_prepare($stmt, $sql)) {
-                    header("Location: ../signup.php?error=sqlerror");
+                    header("Location: ../signup.php?error=invalidsqlerror");
                     exit();
                 } 
 
@@ -52,10 +53,10 @@ if(isset($_POST['signup-submit'])) {
 
                     $hashedPwd = password_hash($password, PASSWORD_DEFAULT);
 
-                    mysqli_stmt_bind_param($stmt, "sssss", $first_name, $address, $email, $mobile, $hashedPwd);
+                    mysqli_stmt_bind_param($stmt, "ssssss", $first_name, $address, $email, $mobile, $role, $hashedPwd);
                     mysqli_stmt_execute($stmt);
                     // mysqli_stmt_store_result($stmt);
-                    header("Location: ../signup.php?signup=success");
+                    header("Location: ../login.php?signup=success");
                     exit();
                     
                 }
